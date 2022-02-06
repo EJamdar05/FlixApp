@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D8CACA"
-    android:backgroundTint="@color/teal_700"
+    android:backgroundTint="#F6F6F6"
     android:backgroundTintMode="screen"
     tools:context=".SplashScreen">
 
@@ -15,5 +15,15 @@
         android:layout_height="200dp"
         android:layout_centerInParent="true"
         android:src="@drawable/ic_baseline_movie_24" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="460dp"
+        android:layout_marginLeft="135dp"
+        android:text="MovieFlix"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
