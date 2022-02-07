@@ -1,5 +1,7 @@
 package com.ejamdar.flixapp
 
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,7 +17,7 @@ import okhttp3.Headers
 
 private const val TAG = "MovieDetails"
 private const val VIDEO_URL = "https://api.themoviedb.org/3/movie/%d/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"
-private const val API_KEY = "AIzaSyA5Cua5112kmiTsxOF-kk7iLKjfpBgZ_jA"
+private var API_KEY = ""
 class MovieDetails : YouTubeBaseActivity() {
     private lateinit var tvTitle: TextView
     private lateinit var tvOverview: TextView
@@ -23,6 +25,11 @@ class MovieDetails : YouTubeBaseActivity() {
     private lateinit var ytPlayerView: YouTubePlayerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val API_SEARCH: ApplicationInfo = applicationContext.packageManager
+            .getApplicationInfo(applicationContext.packageName, PackageManager.GET_META_DATA)
+        API_KEY = API_SEARCH.metaData["API_KEY"] as String
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
 
